@@ -1,0 +1,151 @@
+/*
+================== 
+CUSTOM PROPERTIES
+==================
+*/
+
+:root {
+  /* colors */
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(184, 91%, 17%);
+  --clr-primary-2: hsl(185, 84%, 25%);
+  --clr-primary-3: hsl(185, 81%, 29%);
+  --clr-primary-4: hsl(184, 77%, 34%);
+  /* primary/main color */
+  --clr-primary-5: hsl(185, 62%, 45%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(185, 57%, 50%);
+  --clr-primary-7: hsl(184, 65%, 59%);
+  --clr-primary-8: hsl(184, 80%, 74%);
+  --clr-primary-9: hsl(185, 94%, 87%);
+  --clr-primary-10: hsl(186, 100%, 94%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+
+  --clr-accent-5: hsl(49, 96%, 51%);
+
+  /* fonts */
+  --ff-primary: 'Lato', sans-serif;
+  --ff-secondary: 'Ubuntu', sans-serif;
+
+  --fs-300: 0.85rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3rem;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --transition: all 0.3s linear;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 40em) {
+  :root {
+    --fs-800: 3rem;
+    --fs-900: 4rem;
+  }
+}
+
+/*
+================== 
+RESET
+==================
+*/
+
+/* Sets box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Removes default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Removes unnecessary space caused by line height */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+/* Removes default list styling on ul, ol elements with a list role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Sets core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Sets core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  color: var(--clr-grey-5);
+}
+
+/* Gives default styling to a elements that don't have a class */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Makes images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Inherits fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* changes colors of selected text*/
+
+::selection {
+  color: var(--clr-white);
+  background-color: var(--clr-accent-5);
+}
