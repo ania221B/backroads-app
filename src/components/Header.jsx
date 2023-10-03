@@ -1,6 +1,26 @@
+import { useRef } from 'react'
 import { pageLinks, socialLinks } from '../assets/data'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 function Header () {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const navState = useRef('closed')
+
+  function closeMenu () {
+    setIsExpanded(false)
+    navState.current.setAttribute('data-state', 'closing')
+  }
+
+  function openMenu () {
+    setIsExpanded(true)
+    navState.current.setAttribute('data-state', 'opened')
+  }
+
+  function toggleMenu () {
+    isExpanded ? closeMenu() : openMenu()
+  }
+
   return (
     <>
       <a href='#main-content' className='skip-to-content link-button'>
@@ -16,7 +36,8 @@ function Header () {
             aria-label='mobile menu toggle'
             aria-controls='nav'
             className='button menu-button'
-            aria-expanded='false'
+            aria-expanded={isExpanded ? 'true' : 'false'}
+            onClick={toggleMenu}
           >
             <span className='line line-top' aria-hidden></span>
             <span className='line line-middle' aria-hidden></span>
@@ -27,6 +48,11 @@ function Header () {
             className='primary-nav'
             aria-label='primary page navigation'
             data-state='closed'
+            ref={navState}
+            onAnimationEnd={e => {
+              if (e.animationName === 'closeMenu')
+                navState.current.setAttribute('data-state', 'closed')
+            }}
           >
             <ul className='primary-nav__list list underline' role='list'>
               {pageLinks.map(link => {
